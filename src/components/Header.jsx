@@ -1,7 +1,11 @@
 import React from "react";
 
 const Header = () => {
-  return <div>Header</div>;
+  return (
+    <header className="bg-[#99154E] p-4 font-bold text-white ">
+      FoodTruck Map
+    </header>
+  );
 };
 
 export default Header;

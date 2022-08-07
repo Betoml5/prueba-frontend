@@ -1,22 +1,22 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import FoodTrucksMap from "./containers/FoodTrucksMap";
 
 function App() {
+  const [foodTrucks, setFoodTrucks] = useState([]);
+
   useEffect(() => {
     fetch("https://data.sfgov.org/resource/rqzj-sfat.json")
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
+      .then((data) => setFoodTrucks(data));
   }, []);
 
   return (
     <div className="">
-      <main className="h-screen">
-        <section className="h-96">
-          <FoodTrucksMap />
+      <main className="">
+        <section className="h-screen">
+          <FoodTrucksMap foodTrucks={foodTrucks} />
         </section>
       </main>
     </div>

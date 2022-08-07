@@ -20,19 +20,29 @@ const myIcon = L.icon({
   iconSize: [48, 48],
 });
 
-const FoodTrucksMap = () => {
+const FoodTrucksMap = ({ foodTrucks }) => {
+  console.log("foodTrucks", foodTrucks);
   return (
     <div className="h-full">
-      <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+      <MapContainer
+        center={[51.505, -0.09]}
+        zoom={13}
+        scrollWheelZoom={false}
+        style={{ height: "100%", zIndex: 10 }}
+      >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={[51.505, -0.09]} icon={myIcon}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker>
+        {foodTrucks.map((foodTruck) => (
+          <Marker
+            position={[foodTruck.latitude, foodTruck.longitude]}
+            icon={myIcon}
+            key={foodTruck.objectid}
+          >
+            <Popup>{foodTruck?.applicant}</Popup>
+          </Marker>
+        ))}
       </MapContainer>
     </div>
   );
