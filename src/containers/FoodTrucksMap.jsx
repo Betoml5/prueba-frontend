@@ -1,6 +1,5 @@
 import React from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
@@ -25,10 +24,10 @@ const FoodTrucksMap = ({ foodTrucks }) => {
   return (
     <div className="h-full">
       <MapContainer
-        center={[51.505, -0.09]}
+        center={[37.7749, -122.4194]}
         zoom={13}
         scrollWheelZoom={false}
-        style={{ height: "100%", zIndex: 10 }}
+        style={{ height: "100vh", zIndex: 10 }}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
