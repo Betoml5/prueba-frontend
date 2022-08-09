@@ -1,19 +1,32 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import FoodTrucksMap from "./containers/FoodTrucksMap";
+import { getFoodTrucksAPI } from "./services/FoodTruck";
 
 function App() {
   const [foodTrucks, setFoodTrucks] = useState([]);
 
+  const getFoodTrucks = async () => {
+    try {
+      const data = await getFoodTrucksAPI();
+
+      if (!data) {
+        throw new Error("No data");
+      } else {
+        setFoodTrucks(data);
+      }
+    } catch (error) {
+      throw error;
+    }
+  };
+
   useEffect(() => {
-    fetch("https://data.sfgov.org/resource/rqzj-sfat.json")
-      .then((res) => res.json())
-      .then((data) => setFoodTrucks(data));
+    getFoodTrucks();
   }, []);
 
   return (
-    <div className="">
-      <main className="">
+    <div>
+      <main>
         <section className="h-screen">
           <FoodTrucksMap foodTrucks={foodTrucks} />
         </section>
