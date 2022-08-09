@@ -20,7 +20,6 @@ const myIcon = L.icon({
 });
 
 const FoodTrucksMap = ({ foodTrucks }) => {
-  console.log("foodTrucks", foodTrucks);
   return (
     <div className="h-full">
       <MapContainer

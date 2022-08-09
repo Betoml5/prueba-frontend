@@ -10,4 +10,4 @@ Decidi usar React para el frontend ya que es la biblioteca que mejor se adapta a
 
 ## Compensaciones
 
-Lo que se pudo haber hecho diferente es implementar lazy loading para que no se carguen todos los componentes al iniciar la aplicación. Con la API de intersection observer se pudo hacer que se carguaran solo los componentes que se necesitaban en este caso los marcadores.
+Lo que se pudo haber hecho diferente es implementar lazy loading para que no se carguen todos los componentes al iniciar la aplicación. Con la API de intersection observer se pudo hacer que se carguaran solo los componentes que se necesitaban en este caso los marcadores. Otro punto importante es que no se entendio el punto de "Tipo de camiones de comida se pueden encontrar cerca de una ubicacion especifica" ya que la API no propone una forma de obtenerlo.
